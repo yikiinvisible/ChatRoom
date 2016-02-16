@@ -1,0 +1,13 @@
+#include "my_epoll.h"
+#include "tcp_socket.h"
+#include <vector>
+
+class epoll_server{
+public:
+	epoll_server(char *ip, int port);
+	void run();
+private:
+	my_epoll poll;
+	std::vector<int> v;     //save client fd
+	tcp_socket Server;
+}
